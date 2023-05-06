@@ -4,6 +4,8 @@ alias hm="home-manager"
 
 # home-manager install
 function hmi() {
+    source "${HOME}/.bashrc"
+
     # This does the initial setup and activation of nix home-manager.
     # This does NOT install the packages, this is just an initial setup step.
     sudo -i nix run ${HOME}/${__SYSTEM_BASE_DIR}/nix/home-manager#homeConfigurations.kronos.activationPackage
@@ -13,10 +15,12 @@ function hmi() {
 
     # Install NVM (Node Version Manager)
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+    source "${HOME}/.bashrc"
 
     # Install the LTS version of NodeJS and set it as the default.
     nvm install --lts
     nvm use --lts --default
+    source "${HOME}/.bashrc"
 }
 
 # home-manager switch
