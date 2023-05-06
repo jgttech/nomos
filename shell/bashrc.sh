@@ -4,6 +4,7 @@ alias hm="home-manager"
 
 # home-manager install
 function hmi() {
+    sudo echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     source "${HOME}/.bashrc"
 
     # This does the initial setup and activation of nix home-manager.
