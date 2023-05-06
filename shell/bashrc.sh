@@ -4,7 +4,6 @@ alias hm="home-manager"
 
 # home-manager install
 function hmi() {
-    sudo echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     source "${HOME}/.bashrc"
 
     # This does the initial setup and activation of nix home-manager.
@@ -22,7 +21,7 @@ function hmi() {
     nvm install --lts
     nvm use --lts --default
     source "${HOME}/.bashrc"
-    
+
     npm i -g npm
     npm i -g yarn
     npm i -g pnpm
