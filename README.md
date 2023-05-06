@@ -20,7 +20,18 @@ git clone https://github.com/jgttech/nomos.git ${HOME}/.nomos
 
 ```bash
 ~/.nomos/install.sh
-source ${HOME}/.bashrc
+```
+
+### 4. Refresh shell
+
+BASH
+```bash
+source ~/.bashrc
+```
+
+ZSH
+```bash
+source ~/.zshrc
 ```
 
 ### 3. Follow instructions in terminal.

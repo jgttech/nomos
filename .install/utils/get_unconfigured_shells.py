@@ -1,17 +1,20 @@
 from os import path
-from get_shell_path import get_shell_path
-from env import system_base_dir, system_source_dir
+from utils.get_shell_path import get_shell_path
+from utils.get_system_source_dir import get_system_source_dir
+from env import system_base_dir
 
 # This reads through each of the shell configuration files
 # and checks for the system base directory and the source
 # command that links everything together. If it is not found
 # then it gets added to the unconfigured_shells list.
-def get_unconfigured_shells(shell_files: [str]) -> [str]:
+
+
+def get_unconfigured_shells(shell_files: list[str]) -> list[str]:
     unconfigured_shells = []
 
     for shell_file in shell_files:
         shell_path = get_shell_path(shell_file)
-        shell_source = system_source_dir(shell_file)
+        shell_source = get_system_source_dir(shell_file)
 
         with open(shell_path, "r") as fp:
             system_not_found = True

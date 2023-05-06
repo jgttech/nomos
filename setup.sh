@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # Writes the current shell instance into the system registers shells
 # this way we can switch to ZSH without any problems.

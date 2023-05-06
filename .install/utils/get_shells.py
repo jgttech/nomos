@@ -1,10 +1,12 @@
 from os import path
-from get_shell_path import get_shell_path
+from utils.get_shell_path import get_shell_path
 
 # Detects if the given shell file exists or not.
 # If the file exists it is added to a list of files
 # that exist and returned.
-def get_shells(shell_files: [str]) -> [str]:
+
+
+def get_shells(shell_files: list[str]) -> list[str]:
     existing_shells = []
 
     for shell_file in shell_files:
