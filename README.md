@@ -14,6 +14,7 @@ git clone https://github.com/jgttech/nomos.git ${HOME}/.nomos
 
 ```bash
 ~/.nomos/install.sh
+source ${HOME}/.bashrc
 ```
 
 ### 3. Follow instructions in terminal.
