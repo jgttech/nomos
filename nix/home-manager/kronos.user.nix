@@ -13,6 +13,7 @@
     homeDirectory = "/home/kronos";
     stateVersion = "22.11";
 
+    # [PACKAGES.START]
     packages = with pkgs; [
       vim
       vscodium
@@ -38,5 +39,6 @@
       rustup
       zig
     ];
+    # [PACKAGES.END]
   };
 }
