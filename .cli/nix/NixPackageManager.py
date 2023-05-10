@@ -25,15 +25,16 @@ class NixPackageManager:
         # Run the install command, itself.
         call(nix_hm)
 
+    # home-manager switch --flake ~/.nomos/nix/home-manager#kronos
+    def home_manager_update(self) -> None:
+        pass
+
+    def system_config_install(self) -> None:
         # Create a symbolic link to the .xsessionrc to make
         # sure cursors are the right size.
         xsessionrc_path = path.join(f"{self.base_dir}", "xserver/xsessionrc")
 
         call(["ln", "-sf", xsessionrc_path, ".xsessionrc"])
-
-    # home-manager switch --flake ~/.nomos/nix/home-manager#kronos
-    def home_manager_update(self) -> None:
-        pass
 
     def node_version_manager_install(self) -> None:
         # INSTALL: Node Version Manager

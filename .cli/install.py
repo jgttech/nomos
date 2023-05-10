@@ -7,11 +7,7 @@ from utils.get_shells import get_shells
 from nix.NixPackageManager import NixPackageManager
 
 
-def install():
-    # Should be the diretory that the initial "install.sh"
-    # script is executing from.
-    base_dir = argv[1]
-
+def install(base_dir: str):
     environments = get_unconfigured_shells(get_shells(shells))
     envs = get_scripts(environments)
 
@@ -30,6 +26,7 @@ def install():
 
     nix = NixPackageManager(base_dir)
 
+    nix.system_config_install()
     nix.home_manager_install()
     nix.home_manager_update()
     nix.node_version_manager_install()
