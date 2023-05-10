@@ -4,11 +4,11 @@ function hms() {
     # Switches to the user flake and applies its configuration which DOES install all the packages.
     home-manager switch --flake ${HOME}/${__SYSTEM_BASE_DIR}/nix/home-manager#kronos
 
-    # This symbolic link is needed to link the "zsh" location in the expected area
-    sudo ln -sf "${HOME}/.nix-profile/bin/zsh" /usr/bin/zsh
-
     # This is needed to detect all the Nix installed packages.
     sudo ln -sf ~/.nix-profile/share/applications/* /usr/share/applications/
+
+    # This symbolic link is needed to link the "zsh" location in the expected area
+    sudo ln -sf "${HOME}/.nix-profile/bin/zsh" /usr/bin/zsh
 }
 
 # home-manager update

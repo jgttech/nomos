@@ -21,10 +21,18 @@ You NEED to completely close you active running shell and RE-OPEN a new shell in
 ~/.nomos/install.sh
 ```
 
-### 2. Enable:
+### 3. Enable:
 
 This sets up the initial symbolic links. Once this step is done, you need to log out and then back in.
 
 ```bash
 ~/.nomos/enable.sh
+```
+
+### 4. Clean up
+
+Does any post-install clean-up work. Such as uninstalling things or other misc tasks.
+
+```bash
+~/.nomos/cleanup.sh
 ```
