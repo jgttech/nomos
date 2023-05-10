@@ -1,7 +1,4 @@
-#!/usr/bin/bash
-alias sn="sudo -i nix"
-alias hm="home-manager"
-
+#!/usr/bin/env bash
 # home-manager switch
 function hms() {
     # Switches to the user flake and applies its configuration which DOES install all the packages.
@@ -16,7 +13,10 @@ function hms() {
 
 # home-manager update
 function hmu() {
-    sudo -i nix flake update ${HOME}/${__SYSTEM_BASE_DIR}/nix/home-manager
+    sudo -i nix flake update ${HOME}/${__SYSTEM_BASE_DIR}/nix/home-manager \
+        --extra-experimental-features nix-command \
+        --extra-experimental-features flakes
+
     hms;
 }
 

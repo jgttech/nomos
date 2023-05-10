@@ -12,7 +12,5 @@ source ~/.bashrc
 # Setup the system using this Python 3 script.
 python3 ${BASE_DIR}/.cli install ${BASE_DIR}
 
-# This is REQUIRED. For whatever reason the Nix
-# package management can't detect home-manager
-# until it is completely reloaded.
-echo "Close this shell instance and re-open it."
+# Refresh and enable
+gnome-terminal -- /bin/bash -c "${BASE_DIR}/enable.sh; exec bash" && exit
