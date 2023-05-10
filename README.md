@@ -7,11 +7,5 @@ These are my various system files that drive system configuration(s).
 ### 1. Clone:
 
 ```bash
-git clone https://github.com/jgttech/nomos.git ~/.nomos
-```
-
-### 2. Install:
-
-```bash
-~/.nomos/install.sh
+wget -qO- https://raw.githubusercontent.com/jgttech/nomos/0.0.1/nomos.sh | bash
 ```
