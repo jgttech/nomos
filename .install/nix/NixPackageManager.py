@@ -10,14 +10,10 @@ class NixPackageManager:
         # Actuall install and activate Nix "home manager".
         hm_nix_dir = path.join(f"{self.base_dir}", "nix", "home-manager")
         hm_profile = "#homeConfigurations.kronos.activationPackage"
-        nix_command = "--extra-experimental-features nix-command"
-        nix_flakes = "--extra-experimental-features flakes"
+        nix_command = ["--extra-experimental-features", "nix-command"]
+        nix_flakes = ["--extra-experimental-features", "flakes"]
         nix_run = ["sudo", "-i", "nix", "run"]
-        hm_cmd = [
-            f"{hm_nix_dir}{hm_profile}",
-            nix_command,
-            nix_flakes,
-        ]
+        hm_cmd = [f"{hm_nix_dir}{hm_profile}"] + nix_command + nix_flakes
 
         # Run the install command, itself.
         call(nix_run + hm_cmd)
