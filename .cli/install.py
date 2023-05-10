@@ -1,6 +1,5 @@
-from sys import argv
 from os import path, mkdir
-from env import shells, nix_config_path, nix_config_dir, post_install_instructions
+from env import shells, nix_config_path, nix_config_dir
 from utils.get_unconfigured_shells import get_unconfigured_shells
 from utils.get_scripts import get_scripts
 from utils.get_shells import get_shells
