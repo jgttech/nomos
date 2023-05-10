@@ -15,13 +15,12 @@ python3 ${BASE_DIR}/.cli install ${BASE_DIR}
 # Refresh the shell instance.
 source ~/.bashrc
 
-# Re-run the nix command because, for whatever reason
-# the home-manager instance does not quite exist and
-# re-running this, somehow, makes it work again...
-sudo -i nix run \
-    ~/.nomos/nix/home-manager#homeConfigurations.kronos.activationPackage \
-    --extra-experimental-features nix-command \
-    --extra-experimental-features flakes
+# This queries the nix packages, uninstalls them (which is
+# no packages) and then runs home-manager process (on the
+# daemon) to "install" home-manager at the non-root level.
+nix-env -q
+nix-env --uninstall "*"
+home-manager switch --flake ~/.nomos/nix/home-manager#kronos
 
 # Refresh the shell instance.
 source ~/.bashrc
