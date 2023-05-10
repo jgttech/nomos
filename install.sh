@@ -15,7 +15,9 @@ python3 ${BASE_DIR}/.cli install ${BASE_DIR}
 # This is REQUIRED. For whatever reason the Nix
 # package management can't detect home-manager
 # until it is completely reloaded.
-echo "\n+---------------------------------------------+"
-echo "|  Close this shell instance and re-open it.  |"
-echo "+---------------------------------------------+\n\n"
-echo "Follow next steps."
+printf "\n[NEXT STEPS]\n"
+printf "+------+---------------------+\n"
+printf "|  3.  | Continue to step 3. |\n"
+printf "+------+---------------------+\n\n"
+
+printf "Please follow the next instruction(s)...\n\n"
