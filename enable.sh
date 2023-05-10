@@ -9,3 +9,5 @@ sudo ln -sf "${HOME}/.nix-profile/bin/zsh" /usr/bin/zsh
 
 # This is needed to detect all the Nix installed packages.
 sudo ln -sf ~/.nix-profile/share/applications/* /usr/share/applications/
+
+gnome-session-quit
