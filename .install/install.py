@@ -1,16 +1,19 @@
+from sys import argv
 from os import path, mkdir
 from env import shells, nix_config_path, nix_config_dir, post_install_instructions
 from utils.get_unconfigured_shells import get_unconfigured_shells
 from utils.get_scripts import get_scripts
 from utils.get_shells import get_shells
-from utils.has_str import has_str
+from nix.NixPackageManager import NixPackageManager
 
 
 def install():
+    # Should be the diretory that the initial "install.sh"
+    # script is executing from.
+    base_dir = argv[1]
+
     environments = get_unconfigured_shells(get_shells(shells))
     envs = get_scripts(environments)
-    has_bashrc = has_str("bashrc", envs)
-    has_zshrc = has_str("zshrc", envs)
 
     # Create the nix configuration file, if it does not exist.
     if not path.isfile(nix_config_path):
@@ -25,10 +28,8 @@ def install():
             for line in envs[env_file]:
                 fp.write(line)
 
-    # Messages after the initial install.
-    if has_bashrc:
-        print("Refresh your shell: \"source ~/.bashrc\"")
-    elif has_zshrc:
-        print("Refresh your shell: \"source ~/.zshrc\"")
+    nix = NixPackageManager(base_dir)
 
-    print(post_install_instructions)
+    nix.home_manager_install()
+    nix.home_manager_update()
+    nix.node_version_manager_install()
