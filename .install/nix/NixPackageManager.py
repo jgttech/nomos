@@ -8,10 +8,19 @@ class NixPackageManager:
 
     def home_manager_install(self) -> None:
         # Actuall install and activate Nix "home manager".
-        home_manager_path = "home-manager#homeConfigurations.kronos.activationPackage"
-        home_manager_profile = path.join(f"{self.base_dir}", home_manager_path)
+        hm_nix_dir = path.join(f"{self.base_dir}", "nix", "home-manager")
+        hm_profile = "#homeConfigurations.kronos.activationPackage"
+        nix_command = "--extra-experimental-features nix-command"
+        nix_flakes = "--extra-experimental-features flakes"
+        nix_run = ["sudo", "-i", "nix", "run"]
+        hm_cmd = [
+            f"{hm_nix_dir}{hm_profile}",
+            nix_command,
+            nix_flakes,
+        ]
 
-        call(["sudo", "-i", "nix", "run", home_manager_profile])
+        # Run the install command, itself.
+        call(nix_run + hm_cmd)
 
         # Create a symbolic link to the .xsessionrc to make
         # sure cursors are the right size.
