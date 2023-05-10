@@ -38,5 +38,6 @@ class NixPackageManager:
 
     def node_version_manager_install(self) -> None:
         # INSTALL: Node Version Manager
-        # call(["wget", "-qO-", "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh", "|", "bash"])
-        pass
+        nvm_url = "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh"
+        nvm_install = ["wget", "-qO-", nvm_url, "|", "bash"]
+        call(nvm_install, shell=True)
