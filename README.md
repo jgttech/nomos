@@ -15,3 +15,9 @@ git clone https://github.com/jgttech/nomos.git ~/.nomos
 ```bash
 ~/.nomos/install.sh
 ```
+
+### 2. Enable:
+
+```bash
+~/.nomos/enable.sh
+```

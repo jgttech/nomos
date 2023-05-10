@@ -12,15 +12,7 @@ source ~/.bashrc
 # Setup the system using this Python 3 script.
 python3 ${BASE_DIR}/.cli install ${BASE_DIR}
 
-# Refresh the shell instance.
-source ~/.bashrc
-
-# This queries the nix packages, uninstalls them (which is
-# no packages) and then runs home-manager process (on the
-# daemon) to "install" home-manager at the non-root level.
-nix-env -q
-nix-env --uninstall "*"
-home-manager switch --flake ~/.nomos/nix/home-manager#kronos
-
-# Refresh the shell instance.
-source ~/.bashrc
+# This is REQUIRED. For whatever reason the Nix
+# package management can't detect home-manager
+# until it is completely reloaded.
+echo "Close this shell instance and re-open it."
