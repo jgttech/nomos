@@ -33,8 +33,9 @@ class NixPackageManager:
 
     # home-manager switch --flake ~/.nomos/nix/home-manager#kronos
     def home_manager_update(self) -> None:
-        print(f"home_manager_update {self.base_dir}")
+        pass
 
     def node_version_manager_install(self) -> None:
         # INSTALL: Node Version Manager
-        call(["wget", "-qO-", "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh", "|", "bash"])
+        # call(["wget", "-qO-", "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh", "|", "bash"])
+        pass
