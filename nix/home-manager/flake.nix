@@ -20,13 +20,5 @@
         ./kronos.user.nix
       ];
     };
-
-    homeConfigurations.root = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-
-      modules = [
-        ./root.user.nix
-      ];
-    };
   };
 }
