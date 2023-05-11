@@ -4,13 +4,13 @@
 BASE_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
 
 # Install Nix package manager
-# sh <(curl -L https://nixos.org/nix/install) --daemon
+sh <(curl -L https://nixos.org/nix/install) --daemon
 
 # Refresh the shell instance.
-# source ~/.bashrc
+source ~/.bashrc
 
 # Setup the system using this Python 3 script.
-# python3 ${BASE_DIR}/.cli install ${BASE_DIR}
+python3 ${BASE_DIR}/.cli install ${BASE_DIR}
 
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
