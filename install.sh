@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Node Version Manager install.
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
 # Detect the dir of this script to use as the base
 # dir path for invoking the python install script.
 BASE_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
@@ -11,8 +14,6 @@ source ~/.bashrc
 
 # Setup the system using this Python 3 script.
 python3 ${BASE_DIR}/.cli install ${BASE_DIR}
-
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
 # This is REQUIRED. For whatever reason the Nix
 # package management can't detect home-manager
