@@ -3,21 +3,23 @@
 # dir path for invoking the python install script.
 BASE_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
 
-# # Install Nix package manager
+# Install Nix package manager
 # sh <(curl -L https://nixos.org/nix/install) --daemon
 
-# # Refresh the shell instance.
+# Refresh the shell instance.
 # source ~/.bashrc
 
 # Setup the system using this Python 3 script.
 python3 ${BASE_DIR}/.cli install ${BASE_DIR}
 
+gnome-terminal -- /bin/sh -c "nvm -v; exec bash" && exit
+
 # This is REQUIRED. For whatever reason the Nix
 # package management can't detect home-manager
 # until it is completely reloaded.
-printf "\n[NEXT STEPS]\n"
-printf "+------+---------------------+\n"
-printf "|  3.  | Continue to step 3. |\n"
-printf "+------+---------------------+\n\n"
+# printf "\n[NEXT STEPS]\n"
+# printf "+------+---------------------+\n"
+# printf "|  3.  | Continue to step 3. |\n"
+# printf "+------+---------------------+\n\n"
 
-printf "Please follow the next instruction(s)...\n\n"
+# printf "Please follow the next instruction(s)...\n\n"

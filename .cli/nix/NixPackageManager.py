@@ -1,7 +1,7 @@
 import shutil
 import urllib.request
 from subprocess import call
-from os import path
+from os import path, remove
 
 
 class NixPackageManager:
@@ -45,5 +45,7 @@ class NixPackageManager:
         with urllib.request.urlopen(nvm_url) as response, open(file_path, 'wb') as out_file:
             shutil.copyfileobj(response, out_file)
 
-        call(["chmod", "+x", file_path])
-        call([file_path])
+        if path.exists(file_path):
+            call(["chmod", "+x", file_path])
+            call([file_path])
+            remove(file_path)
