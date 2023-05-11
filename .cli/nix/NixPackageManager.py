@@ -1,3 +1,5 @@
+import shutil
+import urllib.request
 from subprocess import call
 from os import path
 
@@ -37,7 +39,11 @@ class NixPackageManager:
         call(["ln", "-sf", xsessionrc_path, ".xsessionrc"])
 
     def node_version_manager_install(self) -> None:
-        # INSTALL: Node Version Manager
         nvm_url = "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh"
-        nvm_install = ["wget", "-qO-", nvm_url, "|", "bash"]
-        call(nvm_install, shell=True)
+        file_path = path.join(self.base_dir, "nvm_install.sh")
+
+        with urllib.request.urlopen(nvm_url) as response, open(file_path, 'wb') as out_file:
+            shutil.copyfileobj(response, out_file)
+
+        call(["chmod", "+x", file_path])
+        call([file_path])
