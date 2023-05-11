@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+alias xclip="xclip -selection c"
+
 # home-manager switch
 function hms() {
     # Switches to the user flake and applies its configuration which DOES install all the packages.

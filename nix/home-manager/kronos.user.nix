@@ -38,6 +38,10 @@
       go
       rustup
       zig
+      keepassxc
+      filezilla
+      xclip
+      oh-my-zsh
     ];
     # [PACKAGES.END]
   };
