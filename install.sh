@@ -13,10 +13,6 @@ BASE_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
 # python3 ${BASE_DIR}/.cli install ${BASE_DIR}
 
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-source ~/.bashrc
-
-nvm install --lts
-nvm use --lts --default
 
 # This is REQUIRED. For whatever reason the Nix
 # package management can't detect home-manager
