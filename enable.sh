@@ -4,6 +4,10 @@ nix-env -q
 
 home-manager switch --flake ~/.nomos/nix/home-manager#kronos
 
+# Link the fonts from nix packages to the system for the local user.
+mkdir -p ~/.local/share/fonts
+ln -sf ~/.nix-profile/share/fonts/truetype/* ~/.local/share/fonts/
+
 # Create the symbolic link for ZSH from the nix package.
 sudo ln -sf "${HOME}/.nix-profile/bin/zsh" /usr/bin/zsh
 

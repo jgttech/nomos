@@ -42,6 +42,7 @@
       filezilla
       xclip
       oh-my-zsh
+      signal-desktop
     ];
     # [PACKAGES.END]
   };
