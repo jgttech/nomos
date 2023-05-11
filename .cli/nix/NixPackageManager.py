@@ -37,15 +37,3 @@ class NixPackageManager:
         xsessionrc_path = path.join(f"{self.base_dir}", "xserver/xsessionrc")
 
         call(["ln", "-sf", xsessionrc_path, ".xsessionrc"])
-
-    def node_version_manager_install(self) -> None:
-        nvm_url = "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh"
-        file_path = path.join(self.base_dir, "nvm_install.sh")
-
-        with urllib.request.urlopen(nvm_url) as response, open(file_path, 'wb') as out_file:
-            shutil.copyfileobj(response, out_file)
-
-        if path.exists(file_path):
-            call(["chmod", "+x", file_path])
-            call([file_path])
-            remove(file_path)

@@ -10,16 +10,20 @@ BASE_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
 # source ~/.bashrc
 
 # Setup the system using this Python 3 script.
-python3 ${BASE_DIR}/.cli install ${BASE_DIR}
+# python3 ${BASE_DIR}/.cli install ${BASE_DIR}
 
-gnome-terminal -- /bin/sh -c "nvm -v; exec bash" && exit
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+source ~/.bashrc
+
+nvm install --lts
+nvm use --lts --default
 
 # This is REQUIRED. For whatever reason the Nix
 # package management can't detect home-manager
 # until it is completely reloaded.
-# printf "\n[NEXT STEPS]\n"
-# printf "+------+---------------------+\n"
-# printf "|  3.  | Continue to step 3. |\n"
-# printf "+------+---------------------+\n\n"
+printf "\n[NEXT STEPS]\n"
+printf "+------+---------------------+\n"
+printf "|  3.  | Continue to step 3. |\n"
+printf "+------+---------------------+\n\n"
 
-# printf "Please follow the next instruction(s)...\n\n"
+printf "Please follow the next instruction(s)...\n\n"

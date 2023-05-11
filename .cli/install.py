@@ -7,25 +7,24 @@ from nix.NixPackageManager import NixPackageManager
 
 
 def install(base_dir: str):
-    # environments = get_unconfigured_shells(get_shells(shells))
-    # envs = get_scripts(environments)
+    environments = get_unconfigured_shells(get_shells(shells))
+    envs = get_scripts(environments)
 
-    # # Create the nix configuration file, if it does not exist.
-    # if not path.isfile(nix_config_path):
-    #     mkdir(nix_config_dir)
+    # Create the nix configuration file, if it does not exist.
+    if not path.isfile(nix_config_path):
+        mkdir(nix_config_dir)
 
-    #     with open(nix_config_path, "w") as fp:
-    #         fp.write(f"experimental-features = nix-command flakes\n")
+        with open(nix_config_path, "w") as fp:
+            fp.write(f"experimental-features = nix-command flakes\n")
 
-    # # Write out the environment files data.
-    # for env_file in envs:
-    #     with open(env_file, "a") as fp:
-    #         for line in envs[env_file]:
-    #             fp.write(line)
+    # Write out the environment files data.
+    for env_file in envs:
+        with open(env_file, "a") as fp:
+            for line in envs[env_file]:
+                fp.write(line)
 
     nix = NixPackageManager(base_dir)
 
-    # nix.system_config_install()
-    # nix.home_manager_install()
-    # nix.home_manager_update()
-    nix.node_version_manager_install()
+    nix.system_config_install()
+    nix.home_manager_install()
+    nix.home_manager_update()
