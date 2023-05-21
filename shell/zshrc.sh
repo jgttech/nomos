@@ -2,7 +2,7 @@
 # home-manager switch
 function hms() {
     # Switches to the user flake and applies its configuration which DOES install all the packages.
-    home-manager switch --flake ${HOME}/${__SYSTEM_BASE_DIR}/nix/home-manager\#kronos;
+    home-manager switch --flake ${HOME}/${__SYSTEM_BASE_DIR}/nix/home-manager\#kronos $@;
 
     # This is needed to detect all the Nix installed packages.
     sudo ln -sf ~/.nix-profile/share/applications/* /usr/share/applications/;
@@ -17,7 +17,7 @@ function hmu() {
         --extra-experimental-features nix-command \
         --extra-experimental-features flakes
 
-    hms;
+    hms $@;
 }
 
 # home-manager directory
