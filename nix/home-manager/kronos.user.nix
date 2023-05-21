@@ -43,6 +43,9 @@
       xclip
       oh-my-zsh
       signal-desktop
+      vlc
+      onlyoffice-bin
+      vimPlugins.vim-plug
     ];
     # [PACKAGES.END]
   };

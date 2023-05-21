@@ -25,3 +25,13 @@ function hmd() {
     # Change into the directory that the nix home-manager configuration are kept.
     cd ${HOME}/${__SYSTEM_BASE_DIR}/nix/home-manager;
 }
+
+function nvm_update() {
+  nvm install --lts
+  nvm use --lts --default
+  
+  npm i -g npm
+  npm i -g yarn
+  npm i -g pnpm
+}
+
