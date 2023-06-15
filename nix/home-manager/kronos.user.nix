@@ -45,6 +45,7 @@
       vlc
       onlyoffice-bin
       vimPlugins.vim-plug
+      podman-desktop
     ];
     # [PACKAGES.END]
   };
