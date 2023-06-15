@@ -22,8 +22,6 @@
       postman
       insomnia
       zsh
-      docker
-      docker-compose
       gh
       htop
       btop
@@ -43,6 +41,7 @@
       xclip
       oh-my-zsh
       signal-desktop
+      tidal-hifi
     ];
     # [PACKAGES.END]
   };
