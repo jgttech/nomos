@@ -42,6 +42,9 @@
       oh-my-zsh
       signal-desktop
       tidal-hifi
+      vlc
+      onlyoffice-bin
+      vimPlugins.vim-plug
     ];
     # [PACKAGES.END]
   };
